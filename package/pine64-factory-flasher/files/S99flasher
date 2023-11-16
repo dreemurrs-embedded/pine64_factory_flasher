@@ -1,0 +1,27 @@
+#!/bin/sh
+
+FLASHER_BIN=/usr/bin/pine64-factory-flasher
+KEYMAP_FILE=/vol.bmap
+
+case "$1" in
+    start)
+        printf "Starting Pine64 Factory Flasher: "
+        [ -f "$KEYMAP_FILE" ] && { loadkmap < /vol.bmap; } || :
+        openvt -sw $FLASHER_BIN
+        echo "done"
+        ;;
+    stop)
+	echo "Stopping Pine64 Factory Flasher"
+        killall -q pine64-factory-flasher
+        ;;
+    restart)
+	$0 stop
+	$0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+        exit 1
+        ;;
+esac
+
+exit 0

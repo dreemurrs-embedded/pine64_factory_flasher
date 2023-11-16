@@ -1,0 +1,54 @@
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER
+	bool "Pine64 Factory Flasher"
+	select BR2_PACKAGE_DIALOG
+	select BR2_PACKAGE_PV
+	help
+	  Factory flasing tool used by Pine64 to flash images
+	  on Pine64 products.
+
+if BR2_PACKAGE_PINE64_FACTORY_FLASHER
+
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER_EMMC
+	bool "Flash eMMC"
+	help
+	  Specify if we want to flash eMMC or not.
+
+if BR2_PACKAGE_PINE64_FACTORY_FLASHER_EMMC
+
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER_EMMC_IMAGE
+	string "Path to eMMC image"
+	help
+	  eMMC image that will be flashed to the device.
+
+endif
+
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER_SPI
+	bool "Flash SPI"
+	select BR2_PACKAGE_MTD
+	select BR2_PACKAGE_MTD_FLASHCP
+	help
+	  Specify if we want to flash SPI or not.
+
+if BR2_PACKAGE_PINE64_FACTORY_FLASHER_SPI
+
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER_SPI_IMAGE
+	string "Path to SPI image"
+	help
+	  SPI image that will be flashed to the device
+	  using mtd-utils.
+
+endif
+
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER_DEVICEINFO
+	string "Path to deviceinfo file"
+	help
+	  Deviceinfo file is used for providing data to
+	  the flash target.
+
+config BR2_PACKAGE_PINE64_FACTORY_FLASHER_KEYMAP
+	bool "Volume Up/Down, Power keymap"
+	help
+	  This keymap is used on devices without keyboard
+	  such as the PinePhone, PineTab.
+
+endif
