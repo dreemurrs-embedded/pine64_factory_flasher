@@ -1,0 +1,4 @@
+EMMC_DEV="/dev/mmcblk2"
+SPI_DEV="/dev/mtd0"
+BRAND="PINE64"
+MODEL="PinePhone Pro"

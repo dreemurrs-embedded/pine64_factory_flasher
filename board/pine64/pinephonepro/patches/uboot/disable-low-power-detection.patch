@@ -1,0 +1,26 @@
+diff --git a/board/pine64/pinephone-pro-rk3399/pinephone-pro-rk3399.c b/board/pine64/pinephone-pro-rk3399/pinephone-pro-rk3399.c
+index d905bf2254..94716a57ce 100644
+--- a/board/pine64/pinephone-pro-rk3399/pinephone-pro-rk3399.c
++++ b/board/pine64/pinephone-pro-rk3399/pinephone-pro-rk3399.c
+@@ -499,6 +499,7 @@ continue_boot:
+ 	return;
+ 
+ report_low_power_and_poweroff:
++#if 0
+ 	if (led_g)
+ 		led_set_state(led_g, LEDST_OFF);
+ 	blink_led(led_r, 8, 200);
+@@ -506,6 +507,13 @@ report_low_power_and_poweroff:
+ 	blink_led(led_r, INT_MAX, 200);
+ 
+ 	hang();
++#else
++	/*
++	 * This is not really all that accurate when the battery is inserted
++	 * and powered on too quick. So let's not use it at the factory.
++	 */
++	goto continue_boot;
++#endif
+ }
+ 
+ #endif
