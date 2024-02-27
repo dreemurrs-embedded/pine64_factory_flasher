@@ -1,4 +1,4 @@
-EMMC_DEV="/dev/mmcblk2"
+EMMC_DEV="/dev/mmcblk0"
 SPI_DEV="/dev/mtd0"
 BRAND="PINE64"
 MODEL="PineTab 2"
