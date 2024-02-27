@@ -1,0 +1,39 @@
+From 6a0a5a2a71b3e3c4ae1ee0b34a496cbf2d980832 Mon Sep 17 00:00:00 2001
+From: Manuel Traut <manut@mecka.net>
+Date: Sat, 27 Jan 2024 10:48:44 +0100
+Subject: [PATCH 3/4] dt-bindings: arm64: rockchip: Add Pine64 PineTab2
+
+Add devicvetree binding documentation for Pine64 PineTab2
+which uses the Rockchip RK3566 SoC.
+
+Signed-off-by: Manuel Traut <manut@mecka.net>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Link: https://lore.kernel.org/r/20240127-pinetab2-v4-3-37aab1c39194@mecka.net
+[moved Pinetab below Pinephone to keep alphabetical sorting]
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index b03c85a05a92..433a25f4e744 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -649,6 +649,14 @@ properties:
+           - const: pine64,pinephone-pro
+           - const: rockchip,rk3399
+ 
++      - description: Pine64 PineTab2
++        items:
++          - enum:
++              - pine64,pinetab2-v0.1
++              - pine64,pinetab2-v2.0
++          - const: pine64,pinetab2
++          - const: rockchip,rk3566
++
+       - description: Pine64 Rock64
+         items:
+           - const: pine64,rock64
+-- 
+2.44.0
+

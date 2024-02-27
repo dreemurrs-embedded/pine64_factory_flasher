@@ -1,7 +1,7 @@
 From c5619552a35c87172c8a5e69a16a64e78a9b03c7 Mon Sep 17 00:00:00 2001
 From: Alexander Warnecke <awarnecke002@hotmail.com>
 Date: Thu, 29 Jun 2023 19:52:42 +1000
-Subject: [PATCH 3/3] power: supply: rk817: Fix battery capacity sanity check
+Subject: [PATCH] power: supply: rk817: Fix battery capacity sanity check
  calculation
 
 If the nvram variable is corrupted in a way that multiplying it by 1000 causes
