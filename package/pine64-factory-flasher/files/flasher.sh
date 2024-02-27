@@ -63,12 +63,13 @@ flash_os_menu() {
         --clear \
         --no-cancel \
         --menu "Which part do you want to flash?" \
-        10 \
+        12 \
         40 \
         4 \
         "1" "All" \
         "2" "eMMC (OS)" \
         "3" "SPI (Bootloader)" \
+        "4" "Cancel" \
         2>&1 1>&3)
 
     case ${MENUSELECT} in
@@ -126,6 +127,9 @@ flash_os_menu() {
             else
                 dialog --backtitle "${BACKTITLE}" --msgbox "SPI flash !!FAILED!!" 7 70
             fi
+            ;;
+        4)
+            main_menu
             ;;
     esac
 }
